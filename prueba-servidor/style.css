@@ -1,0 +1,337 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 2rem;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    padding: 1rem;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+header a:hover {
+    color: #00bcd4;
+}
+
+/* Main contenido */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+#inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    /* Ocupa gran parte de la pantalla */
+    background: linear-gradient(135deg, #00796b, #004d40);
+    color: #e0f2f1;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 121, 107, 0.6);
+    animation: fadeInUp 1s ease forwards;
+}
+
+#inicio h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#inicio h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+#inicio h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #b2dfdb;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-top: 1.5rem;
+}
+
+/* Botón llamativo opcional */
+#inicio .btn-accion {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background-color: #004d40;
+    color: #e0f2f1;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 77, 64, 0.6);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#inicio .btn-accion:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+}
+
+/* Animación fadeInUp */
+/*ESTO GENERA QUE EL RECUADRO APAREZCA LENTAMENTE PARA COMPROBAR REFRESCAR PAGINA*/
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Layout horizontal de imagen + tarjetas */
+.seccion-contenido {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Tarjeta con imagen (izquierda) */
+#tarjeta-imagen {
+    flex: 1;
+    min-width: 300px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#texto-img h1 {
+    margin-bottom: 0.5rem;
+    color: #00796b;
+}
+
+#texto-img h2 {
+    font-weight: normal;
+    color: #004d40;
+}
+
+#tarjeta-imagen img {
+    max-width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Tarjetas en columna (derecha) */
+#tarjeta-divs {
+    flex: 1;
+    min-width: 300px;
+}
+
+.tarjetas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Tarjeta individual - perspectiva para efecto 3D */
+.tarjeta {
+    perspective: 1000px;
+    cursor: pointer;
+    width: 100%;
+    height: 180px;
+}
+
+/* Contenedor interno que rota */
+.tarjeta-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+}
+
+/* Cuando se agrega la clase rotar */
+.tarjeta.rotar .tarjeta-inner {
+    transform: rotateY(180deg);
+}
+
+/* Frente y reverso */
+.tarjeta-front,
+.tarjeta-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tarjeta-back {
+    transform: rotateY(180deg);
+    background-color: #00796b;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover para agrandar */
+.tarjeta:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+}
+
+footer h1 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+footer button {
+    background-color: #00bcd4;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+footer button:hover {
+    background-color: #0097a7;
+}
+
+/* Formulario contacto */
+#contacto {
+    max-width: 600px;
+    margin: 3rem auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#contacto h2 {
+    margin-bottom: 1rem;
+    color: #00796b;
+    text-align: center;
+}
+
+#contacto label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#contacto input,
+#contacto textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#contacto button {
+    margin-top: 1rem;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contacto button:hover {
+    background-color: #004d40;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode footer {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode #tarjeta-imagen {
+    background-color: #263238;
+    color: #e0e0e0;
+}
+
+body.dark-mode .tarjeta-front {
+    background-color: #37474f !important;
+    color: #e0e0e0;
+}
+
+body.dark-mode .tarjeta-back {
+    background-color: #004d40 !important;
+    color: #b2dfdb;
+}
+
+body.dark-mode #contacto {
+    background-color: #263238;
+    color: #e0e0e0;
+}
+
+body.dark-mode #contacto input,
+body.dark-mode #contacto textarea {
+    background-color: #455a64;
+    color: #e0e0e0;
+    border: 1px solid #78909c;
+}
